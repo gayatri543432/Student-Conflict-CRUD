@@ -1,6 +1,17 @@
 const cl=console.log;
 
 const stdContainer=document.getElementById('stdContainer')
+const firstName=document.getElementById('firstName')
+const lastName=document.getElementById('lastName')
+const email=document.getElementById('email')
+const contact=document.getElementById('contact')
+const stdform=document.getElementById('stdform')
+const addstudent=document.getElementById('addstudent')
+const updatestudent =document.getElementById('updatestudent ')
+
+
+
+
 
 const stdsArr = [
   {
@@ -49,4 +60,35 @@ function templating(arr){
     stdContainer.innerHTML=result
 }
 
+
+function onsubmit(ele){
+  ele.preventDefault()
+
+  let newstd ={
+    firstName : fname.value,
+    lastName : lname.value,
+    email : email.value,
+    contact : contact.value,
+    stdId : Date.now().toString()
+  }
+
+  stdsArr.push(newstd)
+  stdform.reset()
+  let tr = document.createElement('tr')
+  tr.id = newstd.stdId
+  tr.innerHTML =`<td>${stdsArr.length}</td>
+                    <td>${newstd.firstName} ${newstd.lastName}</td>
+                    <td>${newstd.email}</td>
+                    <td>${newstd.contact}</td>
+                    <td><i class="fa-solid fa-pen-to-square fa-2x text-primary" onclick="onEditStd(this)"></i></td>
+                    <td><i class="fa-solid fa-trash-can fa-2x text-danger" onclick="onDeleteStd(this)"></i></td>
+                                   `
+
+  stdContainer.append(tr)
+
+
+}
+
 templating(stdsArr)
+
+stdform.addEventListener('submit',onsubmit)
