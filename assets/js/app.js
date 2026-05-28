@@ -1,6 +1,6 @@
-const cl=console.log;
+const cl = console.log;
 
-const stdContainer=document.getElementById('stdContainer')
+const stdContainer = document.getElementById("stdContainer");
 
 const stdsArr = [
   {
@@ -8,45 +8,53 @@ const stdsArr = [
     firstName: "Rahul",
     lastName: "Sharma",
     email: "rahul@gmail.com",
-    contact: "9876543210"
+    contact: "9876543210",
   },
   {
     stdId: "7asd45-654-xyz987-ab334k",
     firstName: "Priya",
     lastName: "Patil",
     email: "priya@gmail.com",
-    contact: "9123456780"
+    contact: "9123456780",
   },
   {
     stdId: "9zxc78-111-lmn456-rt778p",
     firstName: "Amit",
     lastName: "Verma",
     email: "amit@gmail.com",
-    contact: "9988776655"
+    contact: "9988776655",
   },
   {
     stdId: "5poi90-333-hjk222-ui990m",
     firstName: "Sneha",
     lastName: "Joshi",
     email: "sneha@gmail.com",
-    contact: "9090909090"
-  }
+    contact: "9090909090",
+  },
 ];
 
-
-function templating(arr){
-    let result=''
-    arr.forEach((s,i) => {
-        result+=`  <tr id="${s.stdId}">
-                                        <td>${i+1}</td>
+function templating(arr) {
+  let result = "";
+  arr.forEach((s, i) => {
+    result += `  <tr id="${s.stdId}">
+                                        <td>${i + 1}</td>
                                         <td>${s.firstName} ${s.lastName}</td>
                                         <td>${s.email}</td>
                                         <td>${s.contact}</td>
                                         <td><i class="fa-solid fa-pen-to-square fa-2x text-primary" onclick="onEditStd(this)"></i></td>
                                         <td><i class="fa-solid fa-trash-can fa-2x text-danger" onclick="onDeleteStd(this)"></i></td>
-                                    </tr>  `
-    });
-    stdContainer.innerHTML=result
+                                    </tr>  `;
+  });
+  stdContainer.innerHTML = result;
 }
 
-templating(stdsArr)
+templating(stdsArr);
+
+// Remove
+
+function onDeleteStd(std) {
+  let removeId = std.closest("tr").id;
+  let getIndex = stdsArr.findIndex((ind) => ind.stdId == removeId);
+  let removeItem = stdsArr.splice(getIndex, 1);
+  std.closest("tr").remove();
+}
