@@ -57,4 +57,8 @@ function onDeleteStd(std) {
   let getIndex = stdsArr.findIndex((ind) => ind.stdId == removeId);
   let removeItem = stdsArr.splice(getIndex, 1);
   std.closest("tr").remove();
+  let allTrs = [...document.querySelectorAll("#stdContainer tr")];
+  allTrs.forEach((tr, i) => {
+    tr.firstElementChild.innerText = i + 1;
+  });
 }
