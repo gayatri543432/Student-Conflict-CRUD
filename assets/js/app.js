@@ -1,6 +1,9 @@
 const cl=console.log;
 
 const stdContainer=document.getElementById('stdContainer')
+const addstudent=document.getElementById('addstudent')
+const updatestudent=document.getElementById('updatestudent')
+
 
 const stdsArr = [
   {
@@ -50,3 +53,18 @@ function templating(arr){
 }
 
 templating(stdsArr)
+
+let editId;
+function onEditStd(ele){
+  editId= ele.closest('tr').id;
+  let editobj = stdsArr.find(ele => ele.stdId === editId);
+  firstName.value = editobj.firstName
+  lastName.value = editobj.lastName
+  email.value = editobj.email
+  contact.value = editobj.contact
+
+  addstudent.classlist.add('d-none')
+  updatestudent.classlist.remove('d-none')
+
+
+}
