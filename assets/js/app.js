@@ -92,3 +92,19 @@ function onsubmit(ele){
 templating(stdsArr)
 
 stdform.addEventListener('submit',onsubmit)
+templating(stdsArr)
+
+let editId;
+function onEditStd(ele){
+  editId= ele.closest('tr').id;
+  let editobj = stdsArr.find(ele => ele.stdId === editId);
+  firstName.value = editobj.firstName
+  lastName.value = editobj.lastName
+  email.value = editobj.email
+  contact.value = editobj.contact
+
+  addstudent.classlist.add('d-none')
+  updatestudent.classlist.remove('d-none')
+
+
+}
