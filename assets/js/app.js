@@ -1,13 +1,13 @@
 const cl = console.log;
 
 const stdContainer=document.getElementById('stdContainer')
-const firstName=document.getElementById('firstName')
-const lastName=document.getElementById('lastName')
+const firstName=document.getElementById('fname')
+const lastName=document.getElementById('lname')
 const email=document.getElementById('email')
 const contact=document.getElementById('contact')
 const stdform=document.getElementById('stdform')
 const addstudent=document.getElementById('addstudent')
-const updatestudent =document.getElementById('updatestudent ')
+const updatestudent =document.getElementById('updatestudent')
 
 
 
@@ -44,11 +44,19 @@ const stdsArr = [
   },
 ];
 
-function templating(arr) {
-  let result = "";
-  arr.forEach((s, i) => {
-    result += `  <tr id="${s.stdId}">
-                                        <td>${i + 1}</td>
+function snackbar(msg){
+  swal.fire({
+    title : msg,
+    icon: 'success',
+    timer : 3000 
+  })
+}
+
+function templating(arr){
+    let result=''
+    arr.forEach((s,i) => {
+        result+=`  <tr id="${s.stdId}">
+                                        <td>${i+1}</td>
                                         <td>${s.firstName} ${s.lastName}</td>
                                         <td>${s.email}</td>
                                         <td>${s.contact}</td>
@@ -85,6 +93,7 @@ function onsubmit(ele){
 
   stdContainer.append(tr)
 
+  snackbar(`The New Student ${newstd.firstName} ${newstd.lastName} Is Added Successfully!!`)
 
 }
 
