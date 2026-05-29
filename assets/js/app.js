@@ -50,3 +50,32 @@ function templating(arr){
 }
 
 templating(stdsArr)
+
+function OnUpdate(){
+  let UPDATE_ID=editId
+  let UPDATED_OBJ={
+    firstName:firstName.value,
+    lastName:lastName.value,
+    email:email.value,
+    contact:contact.value,
+    stdId:UPDATE_ID
+  }
+stdform.reset()
+let getIndex = stdsArr.findIndex(std=>{
+  return std.stdId === UPDATE_ID
+})
+
+stdsArr[getIndex] = UPDATED_OBJ
+
+let tr = document.getElementById(UPDATE_ID).children
+
+r[1].innerText=`${UPDATED_OBJ.firstName}  ${UPDATED_OBJ.lastName}`
+tr[2].innerText=`${UPDATED_OBJ.email}  `
+tr[3].innerText=`${UPDATED_OBJ.contact} ` 
+
+
+addSaddstudent.classlist.remove('d-none')
+updatestudent.classlist.add('d-none')
+
+}
+updatestudent.addEventListener('click', onsubmit)
