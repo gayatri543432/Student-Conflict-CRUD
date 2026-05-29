@@ -111,8 +111,8 @@ function onEditStd(ele){
   email.value = editobj.email
   contact.value = editobj.contact
 
-  addstudent.classlist.add('d-none')
-  updatestudent.classlist.remove('d-none')
+  addstudent.classList.add('d-none')
+  updatestudent.classList.remove('d-none')
 
 }
 templating(stdsArr);
