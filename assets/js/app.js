@@ -69,13 +69,12 @@ stdsArr[getIndex] = UPDATED_OBJ
 
 let tr = document.getElementById(UPDATE_ID).children
 
-r[1].innerText=`${UPDATED_OBJ.firstName}  ${UPDATED_OBJ.lastName}`
+tr[1].innerText=`${UPDATED_OBJ.firstName}  ${UPDATED_OBJ.lastName}`
 tr[2].innerText=`${UPDATED_OBJ.email}  `
 tr[3].innerText=`${UPDATED_OBJ.contact} ` 
 
-
-addSaddstudent.classlist.remove('d-none')
-updatestudent.classlist.add('d-none')
+addstudent.classList.remove('d-none')
+updatestudent.classList.add('d-none')
 
 }
-updatestudent.addEventListener('click', onsubmit)
+updatestudent.addEventListener('click', OnUpdate)
