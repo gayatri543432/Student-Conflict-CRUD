@@ -66,7 +66,7 @@ function templating(arr){
   });
   stdContainer.innerHTML = result;
 }
-
+templating(stdsArr)
 
 function onsubmit(ele){
   ele.preventDefault()
@@ -97,10 +97,10 @@ function onsubmit(ele){
 
 }
 
-templating(stdsArr)
+
 
 stdform.addEventListener('submit',onsubmit)
-templating(stdsArr)
+
 
 let editId;
 function onEditStd(ele){
@@ -115,7 +115,7 @@ function onEditStd(ele){
   updatestudent.classList.remove('d-none')
 
 }
-templating(stdsArr);
+
 
 // Remove
 
@@ -142,7 +142,7 @@ function onDeleteStd(std) {
     }
   });
 }
-templating(stdsArr)
+
 
 function OnUpdate(){
   let UPDATE_ID=editId
@@ -169,5 +169,6 @@ tr[3].innerText=`${UPDATED_OBJ.contact} `
 addstudent.classList.remove('d-none')
 updatestudent.classList.add('d-none')
 
+snackbar(`The New Student ${UPDATED_OBJ.firstName} ${UPDATED_OBJ.lastName} Is Updated Successfully!!`)
 }
 updatestudent.addEventListener('click', OnUpdate)
