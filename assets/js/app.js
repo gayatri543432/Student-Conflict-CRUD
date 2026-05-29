@@ -93,7 +93,7 @@ function onsubmit(ele){
 
   stdContainer.append(tr)
 
-  snackbar(`The New Student ${newstd.firstName} ${newstd.lname} Is Added Successfully!!`)
+  snackbar(`The New Student ${newstd.firstName} ${newstd.lastname} Is Added Successfully!!`)
 
 }
 
